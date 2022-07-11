@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Attendance Portal</title>
+	<style type="text/css">
+		#absentnumber{
+			border: 1px solid black;
+			height: 20vh;
+			padding-top:2px ;
+			margin-top: 10px;
+			width: 40%;
+			margin-left: 30%;
+			position: fixed;
+			margin-right:20% ;
+		}
+
+	</style>
+</head>
+<body>
+	<h1 align="center" ><u>Attendance</u></h1>
+</br>
+	<div >
+		<input type="button" name="checked" onclick="checkedall()" value="Checked all">
+		<input type="button" name="checked"  onclick="uncheckedall()" value="Unchecked all">
+		</br>
+	</div>
+</br>
+
+	<div id="absentnumber" align="center">
+		<u>ABSENT NUMBER</u>
+		<h3 id="h3"></h3>
+		
+	</div>
+
+
+	
+
+	<script type="text/javascript">
+		
+		document.write("<u>CLASS:A</u>"+"</br>")
+
+		for(var i=101;i<=165;i++)
+		{
+
+			document.write("<input type=\"checkbox\" name=\"check\" onclick=\"verify()\" value=\""+i+"\"> "+i+"</br>")
+		}
+		
+		document.write("</br>"+"<u>CLASS:B</u>"+"</br>")
+
+		for(var i=201;i<=285;i++)
+		{
+			document.write("<input type=\"checkbox\" name=\"check\" onclick=\"verify()\" value=\""+i+"\"> "+i+"</br>")
+		}
+
+		document.write("</br>"+"<u>CLASS:C</u>"+"</br>")
+
+		for(var i=301;i<=365;i++)
+		{
+			document.write("<input type=\"checkbox\" name=\"check\" onclick=\"verify()\" value=\""+i+"\"> "+i+"</br>")
+		}
+                var element=document.getElementsByName("check");
+                var d=document.getElementById("absentnumber");
+		function checkedall()
+		{
+			for(var i=0; i<element.length;i++)
+			{
+				element[i].checked=true
+			}
+		}
+
+		function uncheckedall()
+		{
+			for(var i=0; i<element.length;i++)
+			{
+				element[i].checked=false
+			}
+		}
+
+                function verify()
+                {
+                        a="";
+                        for(var i=0;i<element.length;i++)
+                        {
+                                if(element[i].checked==true)
+                                {
+                                        a=a+element[i].value+",";
+                                        d.innerHTML=a.substr(0,a.length-1);
+                                }
+                        }
+                }
+	
+	</script>
+</body>
+</html>

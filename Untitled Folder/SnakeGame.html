@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Snake Game</title>
+	<style type="text/css">
+		#snake
+		{
+			position: absolute;
+			height: 8vh;
+			width: 150px;
+			top: 200px;
+			left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<img src="Snake.jpeg" id="snake">
+	<input type="button" value="Left" onclick="startgoingleft()">
+	<input type="button" value="Right" onclick="startgoingright()">
+	<input type="button" value="Up" onclick="startgoingup()">
+	<input type="button" value="Down" onclick="startgoingdown()">
+
+	<script type="text/javascript">
+		var image=document.getElementById("snake")
+		var l,r,u,d,left=100,t=200;
+		var flagl=true,flagr=true,flagu=true,flagd=true;
+
+		function startgoingleft(){
+			clearInterval(d);
+			clearInterval(u);
+			clearInterval(r);
+			if(flagl){
+				flagl=false;
+				flagr=true;
+				flagd=true;
+				flagu=true;
+			 l=setInterval(goingLeft,10);
+			}
+		}
+
+		function goingLeft(){
+			
+			left--;
+			if(left<=0){
+				checkBoundry();
+			}
+			image.style.left=left+"px";
+			
+		}
+
+		function startgoingright(){
+			clearInterval(d);
+			clearInterval(u);
+			clearInterval(l);
+			if(flagr){
+				flagl=true;
+				flagr=false;
+				flagd=true;
+				flagu=true;
+			 r=setInterval(goingRight,10);
+			}
+		}
+
+		function goingRight(){
+			
+			left++;
+			if(left>=screen.availWidth-image.Width){
+				checkBoundry();
+			}
+			image.style.left=left+"px";
+			
+		}
+
+		function startgoingup(){
+			clearInterval(d);
+			clearInterval(l);
+			clearInterval(r);
+			if(flagu){
+				flagl=true;
+				flagr=true;
+				flagd=true;
+				flagu=false;
+			 u=setInterval(goingUp,10);
+			}
+		}
+
+		function goingUp(){
+			
+			t--;
+			if(t<=0 ){
+				checkBoundry();
+			}
+			image.style.top=t+"px";
+			
+		}
+		function startgoingdown(){
+			clearInterval(u);
+			clearInterval(l);
+			clearInterval(r);
+			if(flagd){
+				flagl=true;
+				flagr=true;
+				flagd=false;
+				flagu=true;
+			 d=setInterval(goingDown,10);
+			}
+		}
+
+		function goingDown(){
+			
+			t++;
+			if(t>=screen.availHeight-125){
+				checkBoundry();
+			}
+			image.style.top=t+"px";
+			
+		}
+
+		function checkBoundry(){
+			left=100;
+			t=200;
+			lifeCount--
+			audioWrong.play()
+			if(lifeCount<0){
+				document.write(imgGameOver);
+				clearInterval(l);
+				clearInterval(d);
+				clearInterval(u);
+				clearInterval(r);
+			}
+				life.innerHTML=lifeCount
+		}
+console.log(screen)
+
+	</script>
+
+</body>
+</html>

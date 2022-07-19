@@ -13,9 +13,18 @@
 			top: 200px;
 			left: 300px;
 		}
+
+		#foodOfSnake{
+			position: absolute;
+			top: 100px;
+			left: 400px;
+			height: 7vh;
+			width: 50px
+		}
 	</style>
 </head>
 <body onload="changeLocationOfFood()" onkeydown="moveControl(event)">
+
 	<img src="Snake.jpeg" id="snake">
 	<table>
 	<tr class="text1">
@@ -28,11 +37,17 @@
 			<td id="score">0</td>
 		</tr>
 		</table>
+		<div><img src="food.jpeg" id="foodOfSnake"></div>
+
+	<div  >
+		
+	</div>
 		
 
 	<script type="text/javascript">
 		var image=document.getElementById("snake");
 		var food=document.getElementById("foodOfSnake");
+		var gameor=`<img src="gameover.jpg" id="gameover">`
 		var l,r,u,d,left=300,t=200,l1,t1,food,foodLeft,foodTop;
 		var flagl=true,flagr=true,flagu=true,flagd=true;
 		var lifeCount=3,scoreCount=0;
@@ -40,7 +55,7 @@
 		var score=document.getElementById("score");
 
 		function startgoingleft(){
-			
+			checkMatchingPosition()
 			clearInterval(d);
 			clearInterval(u);
 			clearInterval(r);
@@ -64,7 +79,7 @@
 		}
 
 		function startgoingright(){
-			
+			checkMatchingPosition()
 			clearInterval(d);
 			clearInterval(u);
 			clearInterval(l);
@@ -88,7 +103,7 @@
 		}
 
 		function startgoingup(){
-		
+			checkMatchingPosition()
 			clearInterval(d);
 			clearInterval(l);
 			clearInterval(r);
@@ -111,7 +126,7 @@
 			
 		}
 		function startgoingdown(){
-			
+			checkMatchingPosition()
 			clearInterval(u);
 			clearInterval(l);
 			clearInterval(r);
@@ -136,20 +151,49 @@
 
 		function checkBoundry(){
 			left=300;
+		
 			t=200;
 			lifeCount--
 				if(lifeCount<1){
-				
+
 				clearInterval(l);
 				clearInterval(d);
 				clearInterval(u);
 				clearInterval(r);
+				document.write(gameor)
 				
+			
 			}
 				life.innerHTML=lifeCount
 		}
 
-			 
+		function changeLocationOfFood(){
+			var food=document.getElementById("foodOfSnake");
+			foodTop=Math.random()*600+200;
+			foodLeft=Math.random()*600+450;
+			console.log(foodTop)
+				if(foodLeft<screen.availWidth && foodTop<screen.availHeight){
+					food.style.top=foodTop+"px";
+					food.style.left=foodLeft+"px";
+				}
+				else{
+					changeLocationOfFood();
+				}
+				
+		}	
+		function checkMatchingPosition(){
+			t1=parseInt(foodTop)
+			console.log(t1)
+			console.log(l1)
+			l1=parseInt(foodLeft) 
+	 		if(left<=l1+50 && left>=l1-50 && t<=t1+50 && t>=t1-50 ){
+		 		audioRight.play()
+		 		scoreCount++;
+		 		score.innerHTML=scoreCount;
+		 		changeLocationOfFood();
+	 		}	 	
+
+		} 
 		
 	
 
@@ -172,3 +216,4 @@
 
 </body>
 </html>
+

@@ -3,34 +3,45 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
+	<style type="text/css">
+		table{
+			border: 5px solid black ;
+			 padding: 20px;
+			 border-spacing: 25px;
+			 background-color: #1eebe0;
+
+		}
+
+	</style>
 </head>
 <body>
 	<script type="text/javascript">
-		var a=prompt("Enter username:");
-		var b=prompt("Enter Password:");
+		
 	</script>
 	<h1 align="center"><u>Login Page</u></h1>
 	
-	<table align="center" width="25%" >
-		<tr>
-			<td>Enter Password</td>
+	<table align="center" width="33%" >
+		<tr >
+			<td><u>Enter Username</u></td>
 			<td>:</td>
 			<td align="center"><input type="text" id="txtUsername" placeholder="Enter Username"><br/></td>
 		</tr>
 
 		<tr>
-			<td>Enter Username</td>
+			<td><u>Enter Password</u></td>
 			<td>:</td>
 			<td align="center"><input type="password" id="txtPassword" placeholder="Enter Password"></td>
 		</tr>
 
 		<tr >
-			<td align="center" colspan="3"><input type="button" value="show" onclick="togglePass()" id="toggleBtn"/>
-			<input type="button" value="Login" onclick="login()"></td>
+			<td align="center" colspan="3"><input style="background-color: deepskyblue;" type="button" value="show" onclick="togglePass()" id="toggleBtn"/>
+			<input style="background-color: deepskyblue;" type="button" value="Login" onclick="login()"></td>
 		</tr>
 		
 		<h1 id="ans"></h1>
 	</table>
+
+
 
 	<script type="text/javascript">
 		function login(){
@@ -38,7 +49,7 @@
 			var un = document.getElementById("txtUsername");
 			var p = document.getElementById("txtPassword");
 
-			if(un.value==a && p.value==b){
+			if(un.value=="Himanshu" && p.value=="Kasundra"){
 				alert("Valid User");
 			}
 			else{

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ES_6</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//let//
+		var student={
+			name:'HK Patel',
+			enrollmentNo:21010101075,
+			branch:'CSE'
+		}
+		console.log(student)
+		console.log(student.name)
+
+
+		//let//
+		let x=4
+		for(i=0;i<=x;i++)
+		{
+			console.log(i)
+		}
+		//after loop i is 5//
+		console.log("after loop"+i)
+
+
+		//const//
+		const y=10;
+		function Add()
+		{
+			//we can't change the value of y beacuse y is constant variable and it behave like final keyword//
+			
+			console.log(y)
+		}
+		Add();
+		
+
+		//ARROW FUMNCTION//
+		let faculty={
+			name:'HK ',
+			enrollmentNo:21075,
+			branch:'ME'
+		}
+		//setInterval(()=>{console.log(faculty)},1000)//
+
+		//spread//
+		newFaculty={...faculty,branch:'cse'}
+		console.log(newFaculty)
+
+		//destructuring//
+		function calculate(a, b) {
+			  const add = a + b;
+			  const subtract = a - b;
+			  const multiply = a * b;
+			  const divide = a / b;
+
+	 		 console.log(add, subtract, multiply, divide);
+		}
+		const [add, subtract]= calculate(4, 7);
+
+		//MAP//
+		student1[
+		{name:'HK Patel',enrollmentNo:21010101075,branch:'CSE'},
+		{name:'HK Patel',enrollmentNo:21010101075,branch:'CSE'},
+		{name:'HK Patel',enrollmentNo:21010101075,branch:'CSE'}
+		]
+
+		result=student1.map((stu)=>{
+			return "<li>"+stu.name+"</li>"
+		})
+		document.write("<ul>")
+		document.write(result)
+		document.write("</ul>")
+
+
+		
+	</script>
+</body>
+</html>

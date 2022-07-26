@@ -48,14 +48,14 @@
 		var image=document.getElementById("snake");
 		var food=document.getElementById("foodOfSnake");
 		var gameor=`<img src="gameover.jpg" id="gameover">`
-		var l,r,u,d,left=300,t=200,l1,t1,food,foodLeft,foodTop;
+		var l,r,u,d,left=300,t=200,l1,t1,foodLeft,foodTop;
 		var flagl=true,flagr=true,flagu=true,flagd=true;
 		var lifeCount=3,scoreCount=0;
 		var life=document.getElementById("lifeCount");
 		var score=document.getElementById("score");
 
 		function startgoingleft(){
-			checkMatchingPosition()
+			checkMatchingPosition();
 			clearInterval(d);
 			clearInterval(u);
 			clearInterval(r);
@@ -79,7 +79,7 @@
 		}
 
 		function startgoingright(){
-			checkMatchingPosition()
+			checkMatchingPosition();
 			clearInterval(d);
 			clearInterval(u);
 			clearInterval(l);
@@ -103,7 +103,7 @@
 		}
 
 		function startgoingup(){
-			checkMatchingPosition()
+			checkMatchingPosition();
 			clearInterval(d);
 			clearInterval(l);
 			clearInterval(r);
@@ -126,7 +126,7 @@
 			
 		}
 		function startgoingdown(){
-			checkMatchingPosition()
+			checkMatchingPosition();
 			clearInterval(u);
 			clearInterval(l);
 			clearInterval(r);
@@ -168,9 +168,8 @@
 		}
 
 		function changeLocationOfFood(){
-			var food=document.getElementById("foodOfSnake");
-			foodTop=Math.random()*600+200;
-			foodLeft=Math.random()*600+450;
+			foodTop=Math.random()*400+150;
+			foodLeft=Math.random()*400+350;
 			console.log(foodTop)
 				if(foodLeft<screen.availWidth && foodTop<screen.availHeight){
 					food.style.top=foodTop+"px";
@@ -179,15 +178,12 @@
 				else{
 					changeLocationOfFood();
 				}
-				
+
 		}	
 		function checkMatchingPosition(){
-			t1=parseInt(foodTop)
-			console.log(t1)
-			console.log(l1)
-			l1=parseInt(foodLeft) 
+			t1=parseInt(food.style.top)
+			l1=parseInt(food.style.left)
 	 		if(left<=l1+50 && left>=l1-50 && t<=t1+50 && t>=t1-50 ){
-		 		audioRight.play()
 		 		scoreCount++;
 		 		score.innerHTML=scoreCount;
 		 		changeLocationOfFood();
@@ -216,4 +212,6 @@
 
 </body>
 </html>
+
+
 
